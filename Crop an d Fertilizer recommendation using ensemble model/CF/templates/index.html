@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop & Fertilizer Recommendation</title>
+    <link rel="stylesheet" href="{%static 'styles.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <div class="center-nav" style="padding-left: 150px;">
+                <li><a class="ls" href="#home">Home</a></li>
+                <li><a class="ls" href="#about">About</a></li>
+                <li><a class="ls" href="#recommendation">Recommendation</a></li>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="right-nav">
+
+                <!-- Dropdown for Logout -->
+                <li class="dropdown">
+                    <a style="font-weight: 525;letter-spacing: 2px;" href="#">{{user.username}}</a>
+                    <div class="dropdown-content">
+
+                        <a href="logout">Logout</a>
+                    </div>
+                </li>
+            </div>
+            {% else %}
+            <div class="right-nav">
+                <li><a style="font-weight: 525;letter-spacing: 2px;" href="signup" class="external-link">Login</a></li>
+            </div>
+            {% endif %}
+        </ul>
+    </nav>
+
+
+
+
+    <section id="home">
+        <div class="home-content">
+            <h1>Welcome to Crop & Fertilizer Recommendation System</h1>
+            <p style="font-family: 'Poppins', sans-serif;">Optimize your crop yield and sustainability with the best
+                crop and fertilizer recommendations.</p>
+        </div>
+        <div class="btn-container">
+            <a style="font-family: 'Poppins', sans-serif;font-weight: 500;;" href="#recommendation" class="btn">Get
+                Recommendations</a>
+        </div>
+        <div class="home-image-container">
+            <img src="{%static 'image/home_image.jpg'%}" alt="Farming" class="home-image">
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section id="about">
+        <h1 style="font-family: 'Poppins', sans-serif;">About Crop & Fertilizer Recommendation</h1>
+        <p>Learn how we help optimize your crop yield with the best fertilizer recommendations based on crop type and
+            soil
+            requirements.</p>
+
+        <!-- Cards Section -->
+        <div class="card-container">
+            <!-- Card 1: Crop Types -->
+            <div class="card">
+                <img src="{%static 'image/crop_image.jpg'%}" alt="Crop Types">
+                <h2>Types of Crops</h2>
+                <p>Crops can be divided into several categories such as cereals, pulses, fruits, vegetables, and
+                    oilseeds. Each
+                    crop requires specific conditions for growth and an optimal choice of fertilizer to maximize yield.
+                </p>
+
+            </div>
+
+            <!-- Card 2: Fertilizer Types -->
+            <div class="card">
+                <img src="{%static 'image/fertilizer_image.jpg'%}" alt="Fertilizer Types">
+                <h2>Types of Fertilizers</h2>
+                <p>Fertilizers are crucial in providing essential nutrients for plant growth. Common types include
+                    nitrogen, phosphorus, potassium, and organic fertilizers. Understanding which fertilizer suits which
+                    crop is key to a bountiful harvest.</p>
+
+            </div>
+
+            <!-- Card 3: Best Practices -->
+            <div class="card">
+                <img src="{%static 'image/best_practices_image.jpg'%}" alt="Best Practices">
+                <h2>Best Practices</h2>
+                <p>Using the right amount of fertilizer at the right time helps improve crop productivity.
+                    Over-fertilizing can
+                    harm the crop and the environment, while under-fertilizing can result in poor growth.</p>
+
+            </div>
+        </div>
+
+        <!-- Space between cards and farmland image -->
+        <div class="spacing"></div>
+
+        <!-- Image with Text Section -->
+        <div class="about-image-text">
+            <img src="{%static 'image/farmland.jpg'%}" alt="Farmland" class="about-img">
+            <div class="text-overlay">
+                <h2 style="font-family: 'Poppins', sans-serif;">Enhance Your Yield</h2>
+                <p>Our system recommends fertilizers and crop based on your soil condition. Maximize productivity and
+                    sustainability with our tailored advice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendation Section -->
+    <section id="recommendation">
+        <h1 style="font-family: 'Poppins', sans-serif;">Get Personalized Recommendations</h1>
+        <p>Our Crop & Fertilizer Recommendation System utilizes advanced algorithms to provide tailored advice based on
+            your specific conditions. Whether you are a seasoned farmer or a novice gardener, we help you maximize your
+            yield and sustainability.</p>
+
+        <div class="recommendation-container">
+            <div class="info-card">
+                <h2>Why Use Our Recommendations?</h2>
+                <ul>
+                    <li>Personalized advice based on soil health and condition.</li>
+                    <li>Maximize yield while minimizing environmental impact.</li>
+                    <li>Access to the latest research and best practices.</li>
+                    <li>Expert support and guidance at your fingertips.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h2>How It Works</h2>
+                <ol>
+                    <li>Provide us with details about your crops and soil.</li>
+                    <li>Receive customized recommendations for fertilizers.</li>
+                    <li>Monitor your crop health with ongoing support.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="cta-section">
+
+
+            {% if user.is_authenticated %}
+            <h2>Click on 'Recommend'</h2>
+            <p>To recommend crop and fertilizer.</p>
+            <a href="recommendation" class="cta-button">Recommend</a>
+            {% else %}
+            <h2>Ready to Start Growing?</h2>
+            <p>Join our community of farmers and gardeners. Get started today to unlock your potential!</p>
+            <a href="signup" class="cta-button">Login to Get Recommendations</a>
+            {% endif %}
+        </div>
+    </section>
+
+
+
+
+    <footer>
+        <p>
+            <font>&copy; 2024 Crop & Fertilizer Recommendation</font>
+        </p>
+    </footer>
+
+    <!-- JavaScript for Smooth Scrolling -->
+    <script>
+        // Enable smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Disable smooth scrolling for external links (Login, Signup)
+        document.querySelectorAll('.external-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                window.location.href = this.href; // Redirect to login.html or signup.html without smooth scrolling
+            });
+        });
+    </script>
+
+</body>
+
+</html>

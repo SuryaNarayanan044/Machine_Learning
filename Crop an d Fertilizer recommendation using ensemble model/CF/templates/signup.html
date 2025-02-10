@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Crop & Fertilizer Recommendation</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="page-container">
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <div class="center-nav" style="padding-left: 20px;">
+                    <li><a href="index#home">Home</a></li>
+                    <li><a href="index#about">About</a></li>
+                    <li><a href="index#recommendation">Recommendation</a></li>
+                </div>
+                <div class="right-nav">
+
+                </div>
+            </ul>
+        </nav>
+
+
+
+        <!-- Signup Section -->
+        <div class="main-content">
+            <section id="signup"><br><br>
+                <h2>Signup</h2>
+                <form method="post" action="{% url 'signup' %}">
+                    {% csrf_token %}
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="email">Email ID:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+
+                    <button type="submit">Signup</button>
+                </form>
+
+                <!-- Already signed up section -->
+                <div class="login-redirect">
+                    <p>Already have an account? <a href="login">Login here</a></p>
+                </div>
+            </section>
+        </div>
+        {% for i in messages %}
+        <script>
+            alert("{{i}}");
+        </script>
+        {% endfor %}
+
+        <!-- Footer Section -->
+        <footer>
+            <br>
+            <font>&copy; 2024 Crop & Fertilizer Recommendation</font><br>
+        </footer>
+    </div>
+
+</body>
+
+</html>

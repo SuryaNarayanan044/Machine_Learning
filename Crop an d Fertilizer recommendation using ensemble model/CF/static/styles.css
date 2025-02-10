@@ -1,0 +1,505 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fixed Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #4caf50;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 1000;
+    font-weight: 550;
+    font-size: 20px;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.center-nav {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.right-nav {
+    display: flex;
+    justify-content: right;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #3e8e41;
+    border-radius: 10px;
+}
+
+/* Dropdown Menu for Logout */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top: 5px;
+}
+
+.dropdown-content {
+    margin-top: 2px;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #d6f7d78a;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content p,
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f182;
+    border-radius: 5px;
+}
+
+.logout-link:hover + .dropdown-content,
+.dropdown-content:hover {
+    display: block;
+}
+
+/* Ensure the dropdown content is shown when hovering */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Home section */
+#home {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.home-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Places the image behind the content */
+}
+
+.home-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the section */
+    filter: blur(0px); /* Start with no blur */
+    transition: filter 1s ease; /* Smooth transition for the blur effect */
+}
+
+/* Fade and blur effect at the end of the home image */
+.home-image-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 17%; /* Adjust this to control the size of the fading area */
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 40%,
+        rgb(248, 248, 248) 100%
+    );
+    filter: blur(0px); /* Adds blur at the bottom */
+}
+
+/* Home section content */
+.home-content {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    top: -20%; /* Moves the text slightly above the center */
+}
+
+.home-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.home-content p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+.btn-container {
+    position: relative;
+    top: 7%; /* Moves the button slightly below the center */
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* About Section */
+#about {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+#about h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+#about p {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #fff;
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    /*transition: transform 0.3s ease;*/
+}
+
+.card:hover {
+    transform: translateY(-15px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 15px 0;
+}
+
+.card p {
+    font-size: 16px;
+    color: #666;
+    text-align: justify;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.card a:hover {
+    background-color: #45a049;
+}
+
+/* Space between cards and farmland image */
+.spacing {
+    margin: 40px 0; /* Adjust space as needed */
+}
+
+/* Image with Text Section */
+.about-image-text {
+    position: relative;
+    margin-top: 50px;
+}
+
+.about-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.text-overlay h2 {
+    font-size: 36px;
+}
+
+.text-overlay p {
+    font-size: 18px;
+}
+/* Recommendation Section */
+#recommendation {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#recommendation h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#recommendation p {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+/* Recommendation Container */
+.recommendation-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Fixed width for cards */
+}
+
+.info-card h2 {
+    font-size: 24px;
+    color: #4caf50;
+    margin-bottom: 15px;
+}
+
+.info-card ul,
+.info-card ol {
+    text-align: left;
+    font-size: 16px;
+    color: #4c4b4b;
+}
+
+.cta-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 8px;
+}
+
+.cta-section h2 {
+    font-size: 28px;
+    margin: 0 0 10px 0;
+}
+
+.cta-section p {
+    font-size: 18px;
+    margin: 0 0 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ddf7d7; /* Light gray on hover */
+}
+
+/* Login & Signup Forms */
+/* Main container that holds everything */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Flex content section */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 40px; /* Add more padding for space around the container */
+    margin: auto;
+    width: 100%; /* Take full width */
+    max-width: 600px; /* Limit the max-width for better form alignment */
+}
+
+/* Signup Section */
+#signup h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+    background-color: #f9f9f9;
+    padding: 40px; /* Add padding inside the form to give space around the fields */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Form takes full width within the max-width container */
+    max-width: 500px; /* Set a max-width for the form */
+}
+
+/* Label and input field styling */
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: large;
+    font-family: "Poppins", sans-serif;
+}
+
+form input {
+    width: 100%;
+    padding: 12px; /* Increase padding for a larger input field */
+    margin-bottom: 25px; /* Increase margin for more space between fields */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding is considered inside the width */
+}
+
+/* Button styling */
+form button {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%; /* Make the button span the full width of the form */
+}
+
+form button:hover {
+    background-color: #218838;
+}
+/* Login redirect section */
+.login-redirect {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+}
+
+.login-redirect a {
+    color: #28a745;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-redirect a:hover {
+    text-decoration: underline;
+}
+font {
+    font-size: large;
+}
+
+/* Footer */
+footer {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .main-content {
+        width: 90%; /* Adjust width for small screens */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    form {
+        padding: 20px; /* Reduce form padding on smaller screens */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+}

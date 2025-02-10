@@ -1,0 +1,208 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fixed Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #4caf50;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 1000;
+    font-weight: 550;
+    font-size: 20px;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.center-nav {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.right-nav {
+    display: flex;
+    justify-content: right;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #3e8e41;
+    border-radius: 10px;
+}
+
+/* Dropdown Menu for Logout */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top: 5px;
+}
+
+.dropdown-content {
+    margin-top: 2px;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #d6f7d78a;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content p,
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f182;
+    border-radius: 5px;
+}
+
+.logout-link:hover + .dropdown-content,
+.dropdown-content:hover {
+    display: block;
+}
+
+/* Ensure the dropdown content is shown when hovering */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Header and Hero Section */
+.header {
+    padding: 100px 20px;
+    background-color: #e0f7fa;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.header p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Crop Prediction Section */
+.prediction-container {
+    margin: 120px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.prediction-container h3 {
+    font-size: 28px;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+.prediction-container p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.recommendation-card {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 2px solid #4caf50;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.recommendation-card h4 {
+    font-size: 24px;
+    color: #333;
+}
+
+.recommendation-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.recommendation-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recommendation-card ul li {
+    background: #e8f5e9;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.recommendation-card ul li span {
+    font-weight: bold;
+    color: #388e3c;
+}
+
+/* Footer */
+footer {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .recommendation-container {
+        flex-direction: column;
+    }
+
+    .recommendation-card {
+        margin: 10px 0;
+    }
+
+    .recommendation-form {
+        margin: 10px auto;
+    }
+}

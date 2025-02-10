@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer & Fertilizer Recommendation</title>
+    <link rel="stylesheet" href="{% static 'prestyle.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <div class="center-nav" style="padding-left: 150px;">
+                <li><a href="index#home">Home</a></li>
+                <li><a href="index#about">About</a></li>
+                <li><a href="index#recommendation">Recommendation</a></li>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="right-nav">
+                <li class="dropdown">
+                    <a style="font-weight: 525; letter-spacing: 2px;" href="#">{{ user.username }}</a>
+                    <div class="dropdown-content">
+
+                        <a href="logout">Logout</a>
+                    </div>
+                </li>
+            </div>
+            {% else %}
+            <div class="right-nav">
+                <li><a href="signup" class="external-link">Login</a></li>
+            </div>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Predicted Fertilizer Section -->
+    <section class="prediction-container">
+        <h3>Recommended Fertilizer:<span style="color: rgb(9, 117, 11);">*{{ predicted_fertilizer }}*</span></h3>
+
+        <p>The fertilizer recommendation is based on soil nutrient deficiencies and crop needs to ensure the best growth
+            and yield. We suggest using <font color="green" style="font-weight: 600;">{{ predicted_fertilizer }}</font>
+            for optimal results.</p>
+
+        <!-- Recommendation Card for the Fertilizer -->
+        <div class="recommendation-card">
+            <h4>Why {{ predicted_fertilizer }}?</h4>
+            <p>{{ recommended_fertilizer }} contains balanced nutrients that improve soil fertility, enhance crop
+                resistance, and
+                promote healthy growth, which is essential for the selected crop.</p>
+            <ul>
+                <li><span>Nutrient Composition:</span> Nitrogen (N), Phosphorus (P), Potassium (K)</li>
+                <li><span>Application Frequency:</span> Once every 3 weeks</li>
+                <li><span>Recommended Dosage:</span> 50kg per acre</li>
+                <li><span>Best Time for Application:</span> During sowing and early growth stages</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Fertilizer & Fertilizer Recommendation</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Crop & Fertilizer Recommendation</title>
+    <link rel="stylesheet" href="{%static 'styles.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="page-container">
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <div class="center-nav" style="padding-left: 142px;">
+                    <li><a href="index#home">Home</a></li>
+                    <li><a href="index#about">About</a></li>
+                    <li><a href="index#recommendation">Recommendation</a></li>
+                </div>
+                <div class="right-nav">
+                    <li><a href="signup">Signup</a></li>
+                </div>
+            </ul>
+        </nav>
+
+
+
+        <!-- Login Section -->
+        <div class="main-content">
+            <section id="login">
+                <h2>Login</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" autocomplete="username" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" autocomplete="off" required>
+
+                    <button type="submit">Login</button>
+                </form>
+            </section>
+        </div>
+        {% for i in messages %}
+        <script>
+            alert("{{i}}");
+        </script>
+        {% endfor %}
+
+        <!-- Footer Section -->
+        <footer>
+            <br>
+            <font>&copy; 2024 Crop & Fertilizer Recommendation</font><br>
+        </footer>
+    </div>
+
+</body>
+
+</html>

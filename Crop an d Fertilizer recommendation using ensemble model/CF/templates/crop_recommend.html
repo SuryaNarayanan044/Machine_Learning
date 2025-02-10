@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop & Fertilizer Recommendation</title>
+    <link rel="stylesheet" href="{% static 'prestyle.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <div class="center-nav" style="padding-left: 150px;">
+                <li><a href="index#home">Home</a></li>
+                <li><a href="index#about">About</a></li>
+                <li><a href="index#recommendation">Recommendation</a></li>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="right-nav">
+                <li class="dropdown">
+                    <a style="font-weight: 525; letter-spacing: 2px;" href="#">{{ user.username }}</a>
+                    <div class="dropdown-content">
+
+                        <a href="logout">Logout</a>
+                    </div>
+                </li>
+            </div>
+            {% else %}
+            <div class="right-nav">
+                <li><a href="signup" class="external-link">Login</a></li>
+            </div>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Predicted Crop Section -->
+    <section class="prediction-container">
+        <h3>Recommended Crop: <span style="color: rgb(9, 117, 11);">*{{ predicted_crop }}*</span></h3>
+        <p>Based on the analysis of your soil data and environmental factors, we recommend planting <font color="green"
+                style="font-weight: 600;">{{ predicted_crop }}</font> for optimal growth and yield. </p>
+        <!-- Recommendation Card for the Crop -->
+        <div class="recommendation-card">
+            <h4>Why {{ predicted_crop }}?</h4>
+            <p>{{ predicted_crop }} is well-suited for your soil type and weather conditions, ensuring maximum yield.
+                Additionally, this crop can withstand local pests and requires moderate irrigation, making it ideal for
+                your region.</p>
+            <ul>
+                <li><span>Soil pH:</span> Neutral (6.0 - 7.0)</li>
+                <li><span>Water Requirement:</span> Moderate</li>
+                <li><span>Pest Resistance:</span> High resistance to common regional pests</li>
+                <li><span>Temperature Tolerance:</span> Thrives in temperatures between 20°C and 30°C</li>
+                <li><span>Optimal Planting Time:</span> Early Spring</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Crop & Fertilizer Recommendation</p>
+    </footer>
+</body>
+
+</html>

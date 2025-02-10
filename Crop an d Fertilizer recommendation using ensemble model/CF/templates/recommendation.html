@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop and Fertilizer Recommendation</title>
+    <link rel="stylesheet" href="{% static 'recstyle.css'%}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <div class="center-nav" style="padding-left: 135px;">
+                <li><a href="index#home">Home</a></li>
+                <li><a href="index#about">About</a></li>
+                <li><a href="index#recommendation">Recommendation</a></li>
+            </div>
+            <div class="right-nav">
+                <li class="dropdown">
+                    <a style="font-weight: 525;letter-spacing: 2px;" href="#">{{user.username}}</a>
+                    <div class="dropdown-content">
+
+                        <a href="logout">Logout</a>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="header">
+        <h1>Optimize Your Crop and Fertilizer Choices</h1>
+        <p>Make informed decisions to boost productivity and ensure healthy crop yields.</p>
+    </header>
+
+    <!-- Main Section for Crop and Fertilizer Recommendation (Card Layout) -->
+    <div class="recommendation-container">
+        <!-- Crop Recommendation Card -->
+        <div class="recommendation-card crop-recommendation" onclick="showForm('crop-form')">
+            <h2><i class="fas fa-seedling"></i> Crop Recommendation</h2>
+            <p class="card-description">Find the best crop to grow based on your soil and weather conditions.</p>
+        </div>
+
+        <!-- Fertilizer Recommendation Card -->
+        <div class="recommendation-card fertilizer-recommendation" onclick="showForm('fertilizer-form')">
+            <h2><i class="fas fa-leaf"></i> Fertilizer Recommendation</h2>
+            <p class="card-description">Get personalized fertilizer recommendations for optimal crop growth.</p>
+        </div>
+    </div>
+
+    <!-- Crop Recommendation Form -->
+    <div class="recommendation-form-container">
+        <div class="recommendation-form" id="crop-form">
+            <h2>Crop Recommendation Form</h2>
+            <form action="/crop-recommend" method="POST">
+                {% csrf_token %}
+                <label for="nitrogen">Nitrogen Level (N):</label>
+                <input type="number" id="nitrogen" name="nitrogen" placeholder="Enter Nitrogen level" required>
+
+                <label for="phosphorus">Phosphorus Level (P):</label>
+                <input type="number" id="phosphorus" name="phosphorus" placeholder="Enter Phosphorus level" required>
+
+                <label for="potassium">Potassium Level (K):</label>
+                <input type="number" id="potassium" name="potassium" placeholder="Enter Potassium level" required>
+
+                <label for="ph">Humidity:</label>
+                <input type="number" id="humidity" name="humidity" placeholder="Enter Humidity" required>
+
+                <label for="ph">pH Level:</label>
+                <input type="number" id="ph" name="ph" placeholder="Enter pH level" required>
+
+
+                <label for="rainfall">Rainfall (mm):</label>
+                <input type="number" id="rainfall" name="rainfall" placeholder="Enter Rainfall rate" required>
+
+                <label for="temperature">Temperature (°C):</label>
+                <input type="number" id="temperature" name="temperature" placeholder="Enter Temperature" required>
+
+                <button type="submit">Get Crop Recommendation</button>
+            </form>
+            <p></p>
+        </div>
+        <br>
+
+
+        <!-- Fertilizer Recommendation Form -->
+        <div class="recommendation-form" id="fertilizer-form">
+            <h2>Fertilizer Recommendation Form</h2>
+            <form action="/fertilizer-recommend" method="POST">
+                {% csrf_token %}
+
+                <label for="temp">Temperature (°C):</label>
+                <input type="number" id="temp" name="temp" placeholder="Enter Temperature" required>
+
+                <label for="hum">Humidity (%):</label>
+                <input type="number" id="hum" name="hum" placeholder="Enter Humidity" required>
+
+                <label for="moisture">Moisture (%):</label>
+                <input type="number" id="moisture" name="moisture" placeholder="Enter Moisture" required>
+
+                <label for="soiltype">Soil Type:</label>
+                <input type="text" id="soiltype" name="soiltype" placeholder="Enter Soil Type (e.g., Sandy, Loamy)"
+                    required>
+
+                <label for="croptype">Crop Type:</label>
+                <input type="text" id="croptype" name="croptype" placeholder="Enter Crop Type (e.g., Maize, Cotton)"
+                    required>
+
+                <label for="nitro">Nitrogen Level (N):</label>
+                <input type="number" id="nitro" name="nitro" placeholder="Enter Nitrogen level" required>
+
+                <label for="phos">Phosphorus Level (P):</label>
+                <input type="number" id="phos" name="phos" placeholder="Enter Phosphorus level" required>
+
+                <label for="pot">Potassium Level (K):</label>
+                <input type="number" id="pot" name="pot" placeholder="Enter Potassium level" required>
+
+                <button type="submit">Get Fertilizer Recommendation</button>
+            </form>
+            <p></p><br>
+        </div>
+        <br>
+        <p><br></p>
+    </div>
+
+    <script>
+        // Function to show the selected form
+        function showForm(formId) {
+            // Get the form elements by ID
+            const cropForm = document.getElementById('crop-form');
+            const fertilizerForm = document.getElementById('fertilizer-form');
+
+            // Hide both forms initially
+            cropForm.style.display = 'none';
+            fertilizerForm.style.display = 'none';
+
+            // Show the selected form based on the clicked card
+            if (formId === 'crop-form') {
+                cropForm.style.display = 'block'; // Show the crop form
+            } else if (formId === 'fertilizer-form') {
+                fertilizerForm.style.display = 'block'; // Show the fertilizer form
+            }
+        }
+    </script>
+
+    <!-- Footer Section -->
+    <footer style="position: fixed;">
+        <br>
+        <font>&copy; 2024 Crop & Fertilizer Recommendation</font><br>
+    </footer>
+
+</body>
+
+</html>

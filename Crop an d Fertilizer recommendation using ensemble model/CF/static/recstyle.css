@@ -1,0 +1,256 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    height: 100%;
+}
+
+html,
+body {
+    height: 100%; /* Ensure the body takes full height */
+    margin: 0; /* Remove default margin */
+}
+/* Fixed Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #4caf50;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 1000;
+    font-weight: 550;
+    font-size: 20px;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.center-nav {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.right-nav {
+    display: flex;
+    justify-content: right;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #3e8e41;
+    border-radius: 10px;
+}
+
+/* Dropdown Menu for Logout */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top: 5px;
+}
+
+.dropdown-content {
+    margin-top: 2px;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #d6f7d78a;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content p,
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f182;
+    border-radius: 5px;
+}
+
+.logout-link:hover + .dropdown-content,
+.dropdown-content:hover {
+    display: block;
+}
+
+/* Ensure the dropdown content is shown when hovering */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Header Section */
+.header {
+    padding: 100px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.header p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Recommendation Container */
+.recommendation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
+}
+
+.recommendation-card {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.recommendation-card:hover {
+    transform: scale(1.05);
+}
+
+.recommendation-card h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.recommendation-card p {
+    font-size: 16px;
+    color: #666;
+}
+
+.crop-recommendation {
+    background-color: #d4edda;
+}
+
+.fertilizer-recommendation {
+    background-color: #d1ecf1;
+}
+
+/* Forms */
+.recommendation-form {
+    display: none; /* Forms hidden initially */
+    padding: 40px;
+    background-color: #f1eed1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Adjusted width */
+    margin: 20px auto; /* Centering the form */
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recommendation-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+.recommendation-form label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+}
+
+.recommendation-form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%; /* Make input take full width */
+}
+
+.recommendation-form button {
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 70%; /* Button full width */
+}
+
+.recommendation-form button:hover {
+    background-color: #45a049;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+/* Footer */
+footer {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .recommendation-container {
+        flex-direction: column;
+    }
+
+    .recommendation-card {
+        margin: 10px 0;
+    }
+
+    .recommendation-form {
+        margin: 10px auto;
+    }
+}
